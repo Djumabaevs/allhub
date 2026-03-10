@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakyt Dzhumabaev — Full-Stack Developer</title>
+<meta name="description" content="iOS Developer with 17 published App Store apps, full-stack web, blockchain, AI/ML, and game development portfolio.">
+<meta property="og:title" content="Bakyt Dzhumabaev — Full-Stack Developer">
+<meta property="og:description" content="17 App Store apps · Web · Blockchain · AI · Games">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --text: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --card-bg: rgba(255,255,255,0.72);
+  --card-border: rgba(0,0,0,0.08);
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  --card-shadow-hover: 0 8px 40px rgba(0,0,0,0.12);
+  --accent: #6366f1;
+  --accent-light: #818cf8;
+  --accent-bg: rgba(99,102,241,0.08);
+  --nav-bg: rgba(255,255,255,0.72);
+  --nav-border: rgba(0,0,0,0.08);
+  --badge-bg: #f0f0f3;
+  --badge-text: #444;
+  --gradient-start: #6366f1;
+  --gradient-end: #a78bfa;
+  --hero-gradient: linear-gradient(135deg, #f5f5f7 0%, #e8e0f7 50%, #f5f5f7 100%);
+  --section-alt: #f5f5f7;
+  --hosting-fe: #10b981;
+  --hosting-be: #f59e0b;
+  --hosting-bc: #8b5cf6;
+  --status-paused: #ef4444;
+  --status-dev: #3b82f6;
+  --status-wip: #f59e0b;
+}
+[data-theme="dark"] {
+  --bg: #000000;
+  --bg-secondary: #111113;
+  --text: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --card-bg: rgba(28,28,30,0.72);
+  --card-border: rgba(255,255,255,0.08);
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 8px 40px rgba(0,0,0,0.5);
+  --accent: #818cf8;
+  --accent-light: #a5b4fc;
+  --accent-bg: rgba(129,140,248,0.12);
+  --nav-bg: rgba(0,0,0,0.72);
+  --nav-border: rgba(255,255,255,0.08);
+  --badge-bg: rgba(255,255,255,0.08);
+  --badge-text: #ccc;
+  --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1028 50%, #0a0a0a 100%);
+  --section-alt: #111113;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.5;
+  -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s;
+}
+
+/* Nav */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--nav-bg); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--nav-border); transition: background 0.4s; }
+.nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 52px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-links { display: flex; gap: 28px; align-items: center; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.theme-toggle { background: none; border: none; cursor: pointer; font-size: 18px; padding: 4px; border-radius: 8px; transition: background 0.2s; line-height: 1; }
+.theme-toggle:hover { background: var(--accent-bg); }
+.mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; width: 32px; height: 32px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+.mobile-menu-btn span { display: block; width: 18px; height: 1.5px; background: var(--text); border-radius: 1px; transition: transform 0.3s, opacity 0.3s; }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 24px 80px; background: var(--hero-gradient); position: relative; overflow: hidden; transition: background 0.4s; }
+.hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 50%, rgba(99,102,241,0.06) 0%, transparent 50%), radial-gradient(circle at 70% 50%, rgba(167,139,250,0.06) 0%, transparent 50%); animation: heroGlow 12s ease-in-out infinite alternate; }
+@keyframes heroGlow { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-3%,3%) scale(1.05); } }
+.hero-content { position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(42px, 8vw, 80px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 16px; background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-subtitle { font-size: clamp(16px, 2.5vw, 22px); color: var(--text-secondary); font-weight: 400; max-width: 600px; margin: 0 auto 40px; }
+.hero-stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
+.hero-stat-number { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4; animation: scrollBounce 2s infinite; }
+.scroll-indicator span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); }
+.scroll-arrow { width: 20px; height: 20px; border-right: 1.5px solid var(--text-secondary); border-bottom: 1.5px solid var(--text-secondary); transform: rotate(45deg); }
+@keyframes scrollBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+/* Sections */
+section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+section:nth-child(even) { max-width: 100%; background: var(--section-alt); transition: background 0.4s; }
+section:nth-child(even) > .section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header { margin-bottom: 56px; text-align: center; }
+.section-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+.section-header h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.035em; margin-bottom: 8px; }
+.section-header h2 span { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.section-subtitle { color: var(--text-secondary); font-size: 17px; max-width: 500px; margin: 0 auto; }
+
+/* Cards */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
+.card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; box-shadow: var(--card-shadow); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s, background 0.4s; position: relative; overflow: hidden; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.card-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.card-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
+.card-icon-img { width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.card-title-block { flex: 1; min-width: 0; }
+.card-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.card-price { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); background: var(--accent-bg); padding: 2px 8px; border-radius: 6px; margin-top: 4px; }
+.card-status { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 6px; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+.status-paused { background: rgba(239,68,68,0.1); color: var(--status-paused); }
+.status-dev { background: rgba(59,130,246,0.1); color: var(--status-dev); }
+.status-wip { background: rgba(245,158,11,0.1); color: var(--status-wip); }
+.card-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.card-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.tech-badge { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 8px; background: var(--badge-bg); color: var(--badge-text); transition: background 0.4s, color 0.4s; }
+.card-hosting { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.hosting-badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px; color: #fff; }
+.hosting-fe { background: var(--hosting-fe); }
+.hosting-be { background: var(--hosting-be); }
+.hosting-bc { background: var(--hosting-bc); }
+.card-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.card-link { font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 6px 14px; border-radius: 10px; border: 1px solid var(--accent); transition: all 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+.card-link:hover { background: var(--accent); color: #fff; }
+.card-link-filled { background: var(--accent); color: #fff; border-color: var(--accent); }
+.card-link-filled:hover { background: var(--accent-light); border-color: var(--accent-light); }
+.card-link-appstore { background: #000; color: #fff; border-color: #000; }
+.card-link-appstore:hover { background: #333; border-color: #333; }
+[data-theme="dark"] .card-link-appstore { background: #fff; color: #000; border-color: #fff; }
+[data-theme="dark"] .card-link-appstore:hover { background: #ddd; border-color: #ddd; }
+.level-badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px; margin-top: 4px; display: inline-block; }
+.level-beginner { background: rgba(16,185,129,0.1); color: #10b981; }
+.level-intermediate { background: rgba(245,158,11,0.1); color: #f59e0b; }
+.level-advanced { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+/* Feature list */
+.card-features { list-style: none; margin-bottom: 14px; }
+.card-features li { font-size: 13px; color: var(--text-secondary); padding: 3px 0; display: flex; align-items: flex-start; gap: 6px; }
+.card-features li::before { content: '→'; color: var(--accent); font-weight: 600; flex-shrink: 0; }
+
+/* Infra */
+.infra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.infra-card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; box-shadow: var(--card-shadow); transition: transform 0.3s, box-shadow 0.3s, background 0.4s; }
+.infra-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.infra-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
+.infra-list { list-style: none; }
+.infra-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 8px; }
+.infra-list li:last-child { border-bottom: none; }
+.infra-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+/* Footer */
+footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--card-border); transition: border-color 0.4s; }
+.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+.footer-link { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--badge-bg); color: var(--text-secondary); text-decoration: none; transition: all 0.2s; }
+.footer-link:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+.footer-link svg { width: 20px; height: 20px; fill: currentColor; }
+.footer-text { font-size: 13px; color: var(--text-secondary); }
+.footer-email { color: var(--accent); text-decoration: none; }
+.footer-email:hover { text-decoration: underline; }
+
+/* Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 52px; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--nav-border); padding: 16px 24px; gap: 16px; }
+  .nav-links.open a { font-size: 15px; }
+  .mobile-menu-btn { display: flex; }
+  .cards-grid, .infra-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 28px; }
+  section { padding: 64px 20px; }
+  .section-header { margin-bottom: 36px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Bakyt D.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#ios">iOS Apps</a></li>
+      <li><a href="#web">Web</a></li>
+      <li><a href="#games">Games</a></li>
+      <li><a href="#blockchain">Blockchain</a></li>
+      <li><a href="#ai">AI/ML</a></li>
+      <li><a href="#bots">Bots</a></li>
+      <li><a href="#infra">Infra</a></li>
+      <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☾</button></li>
+    </ul>
+    <button class="mobile-menu-btn" id="mobileMenu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Bakyt Dzhumabaev</h1>
+    <p class="hero-subtitle">Full-Stack Developer · iOS · Web · Blockchain · AI/ML</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-number">17</div><div class="hero-stat-label">App Store Apps</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">10</div><div class="hero-stat-label">Web Projects</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">9</div><div class="hero-stat-label">Games</div></div>
+      <div class="hero-stat"><div class="hero-stat-number">3</div><div class="hero-stat-label">Blockchains</div></div>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span>Scroll</span><div class="scroll-arrow"></div></div>
+</section>
+
+<!-- iOS Apps -->
+<section id="ios">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">📱</span>
+      <h2>iOS <span>Apps</span></h2>
+      <p class="section-subtitle">17 published apps on the App Store. Built with Swift.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/71/0c/2f/710c2f18-d104-5e89-e8dd-22143112b945/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Vectors Sketch">
+          <div class="card-title-block"><div class="card-title">Vectors Sketch</div></div>
+        </div>
+        <p class="card-desc">Vector drawing tool for creating precise illustrations and sketches with intuitive gesture controls.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">UIKit</span><span class="tech-badge">CoreGraphics</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/vectors-sketch/id6758646967" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a5/18/89/a5188963-fc21-3656-4b94-77e3abc10ab7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="FocusFlowDaily">
+          <div class="card-title-block"><div class="card-title">FocusFlowDaily</div></div>
+        </div>
+        <p class="card-desc">Focus & productivity timer to supercharge your deep work sessions with Pomodoro technique.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">SwiftUI</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/focusflowdaily/id6758512712" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7e/d8/c9/7ed8c90e-d9f0-afb2-73c6-9f54eded50cc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="SkyMapUSA">
+          <div class="card-title-block"><div class="card-title">SkyMapUSA</div></div>
+        </div>
+        <p class="card-desc">Sky map & star gazing app with augmented reality overlays for real-time constellation tracking.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreLocation</span><span class="tech-badge">ARKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/skymapusa/id6758521674" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/b2/ae/5fb2ae75-648a-38aa-5c08-70f3ba427bb2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Hydro Water">
+          <div class="card-title-block"><div class="card-title">Hydro Water</div></div>
+        </div>
+        <p class="card-desc">Water intake tracker integrated with Apple Health for daily hydration goals.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">HealthKit</span><span class="tech-badge">SwiftUI</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/hydro-water/id6758605857" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/e3/01/c4e30181-e600-02d4-297a-1bd7fc351c45/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/128x128bb.jpg" alt="Sallary Online Tracker">
+          <div class="card-title-block"><div class="card-title">Sallary Online Tracker</div></div>
+        </div>
+        <p class="card-desc">Income tracking app with persistent local storage and analytics dashboard.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreData</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/sallary-online-tracker/id6758534537" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/ae/bd/e5aebd4f-c6f3-916d-477e-399364e2b3ad/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Mind Glow Offline">
+          <div class="card-title-block"><div class="card-title">Mind Glow Offline</div></div>
+        </div>
+        <p class="card-desc">Offline mindfulness & meditation — guided sessions with ambient sounds, no internet required.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">AVFoundation</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/mind-glow-offline/id6758568929" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/31/3a/2f313a8b-f560-c9d7-947d-1f4fb30c1330/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Archaman">
+          <div class="card-title-block"><div class="card-title">Archaman</div></div>
+        </div>
+        <p class="card-desc">Augmented reality experience app with 3D object placement using RealityKit.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">ARKit</span><span class="tech-badge">RealityKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/archaman/id6757703612" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/26/5a/c1265a4a-3342-d229-0900-4438f43eb095/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Tamakpet">
+          <div class="card-title-block"><div class="card-title">Tamakpet</div></div>
+        </div>
+        <p class="card-desc">Virtual pet game — feed, play and care for your digital companion with SpriteKit animations.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">SpriteKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/tamakpet/id6758340935" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/1a/d9/761ad948-3e4e-76b5-e6c4-3879edc65b5a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="BreatheNowLife">
+          <div class="card-title-block"><div class="card-title">BreatheNowLife</div></div>
+        </div>
+        <p class="card-desc">Guided breathing exercises with HealthKit integration for stress relief and relaxation.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">HealthKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/breathenowlife/id6758463417" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/7d/73/6e7d7358-3990-6a0e-648f-9157dcb398fe/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Sight Camera X">
+          <div class="card-title-block"><div class="card-title">Sight Camera X</div></div>
+        </div>
+        <p class="card-desc">Camera app with real-time filters powered by CoreImage and custom CIKernel shaders.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">AVFoundation</span><span class="tech-badge">CoreImage</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/sight-camera-x/id6758730624" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/3a/8b/923a8b87-ff1e-4df5-c5f4-0f948a460aa2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Offline Menu Translator">
+          <div class="card-title-block"><div class="card-title">Offline Menu Translator</div></div>
+        </div>
+        <p class="card-desc">Point your camera at any menu — instant offline translation using on-device OCR and NLP.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">Vision</span><span class="tech-badge">CoreML</span><span class="tech-badge">NLP</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/offline-menu-translator/id6758393945" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/72/ba/1172bac9-451b-8160-7719-7bf3d10fd03e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="CaloriesSnap">
+          <div class="card-title-block"><div class="card-title">CaloriesSnap</div></div>
+        </div>
+        <p class="card-desc">AI calorie counter — snap a photo of your meal for instant nutritional analysis using CoreML.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreML</span><span class="tech-badge">Vision</span><span class="tech-badge">CreateML</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/caloriessnap/id6759057387" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/ca/cc/26caccf2-24df-ce7d-6269-7860ba3de5b3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Aura Lights">
+          <div class="card-title-block"><div class="card-title">Aura Lights</div></div>
+        </div>
+        <p class="card-desc">Ambient lighting control app with HomeKit integration for smart home scenes.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">HomeKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/aura-lights/id6758928631" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/95/dc/d295dc0f-67c6-a25e-43fb-ce63d341b0ad/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Environment Scan">
+          <div class="card-title-block">
+            <div class="card-title">Environment Scan</div>
+            <span class="card-price">$3.99</span>
+          </div>
+        </div>
+        <p class="card-desc">Bluetooth & Wi-Fi device scanner — discover and analyze devices in your surroundings.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreBluetooth</span><span class="tech-badge">NetworkExtension</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/environment-scan/id6758941256" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/9d/20/839d2014-4a14-3da2-3e95-2c4c56926f74/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Sense">
+          <div class="card-title-block">
+            <div class="card-title">Sense — Body Intelligence</div>
+            <span class="card-price">$4.99</span>
+          </div>
+        </div>
+        <p class="card-desc">8 health sensor modules — motion, heart rate, altimeter, gyroscope, and more. Real-time data visualization.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">HealthKit</span><span class="tech-badge">CoreMotion</span><span class="tech-badge">CoreLocation</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/sense-body-intelligence/id6758951696" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/be/8b/dabe8bb3-e19c-4166-7c8f-5e5fea932a3a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="HapticTerrarium">
+          <div class="card-title-block">
+            <div class="card-title">HapticTerrarium</div>
+            <span class="card-price">$0.99</span>
+          </div>
+        </div>
+        <p class="card-desc">Therapeutic haptic sandbox — interact with particles and feel immersive vibrations via CoreHaptics.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreHaptics</span><span class="tech-badge">SpriteKit</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/hapticterrarium/id6758998219" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/b6/91/b9b69183-6794-7c94-d320-e362a8b34350/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="PoseScope">
+          <div class="card-title-block">
+            <div class="card-title">PoseScope</div>
+            <span class="card-price">$4.99</span>
+          </div>
+        </div>
+        <p class="card-desc">AI pose analysis — real-time body tracking with skeleton overlay and exercise form feedback.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">Vision</span><span class="tech-badge">CoreML</span><span class="tech-badge">AVFoundation</span></div>
+        <div class="card-links"><a href="https://apps.apple.com/app/posescope/id6759051036" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Web Projects -->
+<section id="web">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">🌐</span>
+      <h2>Web <span>Projects</span></h2>
+      <p class="section-subtitle">Full-stack web applications and services.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🌍</div>
+          <div class="card-title-block"><div class="card-title">Real Dashboard</div></div>
+        </div>
+        <p class="card-desc">Palantir-style 3D geospatial command dashboard — interactive globe with satellite tracking, live flights, webcams, earthquakes, and weather overlays in real-time.</p>
+        <div class="card-tech"><span class="tech-badge">Three.js</span><span class="tech-badge">Vite</span><span class="tech-badge">WebSocket</span><span class="tech-badge">DRACO</span><span class="tech-badge">Bloom</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">Frontend: Vercel</span>
+          <span class="hosting-badge hosting-be">Backend: Hetzner</span>
+        </div>
+        <div class="card-links"><a href="https://real-dashboard.vercel.app" target="_blank" rel="noopener" class="card-link card-link-filled">Live Demo ↗</a><a href="https://github.com/Djumabaevs/real_dashboard" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔍</div>
+          <div class="card-title-block"><div class="card-title">ProofSnap</div></div>
+        </div>
+        <p class="card-desc">AI photo verification on blockchain. Snap a photo → AI analysis → SHA-256 hash → Merkle Tree → immutable proof on Polygon mainnet. iOS native + web dashboard.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">Node.js</span><span class="tech-badge">Fastify</span><span class="tech-badge">Polygon</span><span class="tech-badge">ethers.js</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">iOS Native App</span>
+          <span class="hosting-badge hosting-be">Backend: Hetzner</span>
+          <span class="hosting-badge hosting-bc">Blockchain: Polygon</span>
+        </div>
+        <div class="card-links"><a href="https://github.com/Djumabaevs/privacy-proof" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎬</div>
+          <div class="card-title-block"><div class="card-title">КиноПоток (MovieStream)</div></div>
+        </div>
+        <p class="card-desc">Movie & TV streaming aggregator with search, categories, and Samsung TV (Tizen) compatibility. SSR for SEO.</p>
+        <div class="card-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">React 19</span><span class="tech-badge">Tailwind CSS</span><span class="tech-badge">TMDB API</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">Frontend: Vercel</span>
+        </div>
+        <div class="card-links"><a href="https://relaxview.live" target="_blank" rel="noopener" class="card-link card-link-filled">Live ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔐</div>
+          <div class="card-title-block">
+            <div class="card-title">GhostLine VPN</div>
+            <span class="card-status status-wip">In Development</span>
+          </div>
+        </div>
+        <p class="card-desc">AI-adaptive multi-protocol VPN with automatic throttle detection. Supports 5 protocols: WireGuard, VLESS+Reality, Hysteria2, Shadowsocks 2022, AmneziaWG. Rust core compiles to native iOS/Android/macOS.</p>
+        <ul class="card-features">
+          <li>XGBoost ML model detects throttling type in &lt;5ms on-device</li>
+          <li>Auto-switches between protocols based on network conditions</li>
+          <li>Rust core with boringtun (userspace WireGuard) + quinn (QUIC)</li>
+          <li>TLS fingerprint mimicry (Chrome/Firefox/Safari handshakes)</li>
+          <li>Self-hosted VPN server — you control the hardware and keys</li>
+        </ul>
+        <div class="card-tech"><span class="tech-badge">Rust</span><span class="tech-badge">Swift</span><span class="tech-badge">WireGuard</span><span class="tech-badge">VLESS</span><span class="tech-badge">Hysteria2</span><span class="tech-badge">XGBoost/ONNX</span><span class="tech-badge">Node.js</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-be">Server: Hetzner</span>
+          <span class="hosting-badge hosting-fe">iOS + macOS</span>
+        </div>
+        <div class="card-links"><a href="https://github.com/Djumabaevs/customvpn" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📸</div>
+          <div class="card-title-block"><div class="card-title">Photo ID (Фото на документы)</div></div>
+        </div>
+        <p class="card-desc">Passport photo creator PWA with AI background removal, face detection, and auto-crop. Presets for 30+ countries: Russia, USA, Schengen, Korea. Works offline.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5</span><span class="tech-badge">CSS3</span><span class="tech-badge">Vanilla JS</span><span class="tech-badge">PWA</span><span class="tech-badge">Canvas API</span></div>
+        <div class="card-links">
+          <a href="https://djumabaevs.github.io/foto/" target="_blank" rel="noopener" class="card-link card-link-filled">Live Demo ↗</a>
+          <a href="https://github.com/Djumabaevs/foto" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💧</div>
+          <div class="card-title-block"><div class="card-title">Wateron</div></div>
+        </div>
+        <p class="card-desc">Crypto token website — 1 WTRN = 1 liter of water. ERC-20 on BNB Smart Chain with MetaMask integration.</p>
+        <div class="card-tech"><span class="tech-badge">Vercel</span><span class="tech-badge">BNB Chain</span><span class="tech-badge">ERC-20</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">Frontend: Vercel</span>
+          <span class="hosting-badge hosting-bc">Blockchain: BNB</span>
+        </div>
+        <div class="card-links"><a href="https://wateron.vercel.app" target="_blank" rel="noopener" class="card-link card-link-filled">Live ↗</a><a href="https://github.com/Djumabaevs/wateron" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💻</div>
+          <div class="card-title-block">
+            <div class="card-title">AlgoApp</div>
+            <span class="card-status status-paused">Paused</span>
+          </div>
+        </div>
+        <p class="card-desc">Decentralized code challenge platform — LeetCode meets Blockchain meets AI Judge. Smart contract-verified submissions.</p>
+        <div class="card-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">Node.js</span><span class="tech-badge">Qwen + LoRA</span><span class="tech-badge">BNB Chain</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">Frontend: Vercel</span>
+          <span class="hosting-badge hosting-be">Backend: Hetzner</span>
+        </div>
+        <div class="card-links"><a href="https://algoapp-eta.vercel.app" target="_blank" rel="noopener" class="card-link card-link-filled">Live ↗</a><a href="https://github.com/Djumabaevs/algoapp" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📱</div>
+          <div class="card-title-block"><div class="card-title">iAppUsed</div></div>
+        </div>
+        <p class="card-desc">Used Apple devices marketplace with real-time database, auth, and image upload.</p>
+        <div class="card-tech"><span class="tech-badge">Next.js</span><span class="tech-badge">Firebase</span><span class="tech-badge">Firestore</span><span class="tech-badge">Auth</span></div>
+        <div class="card-links"><a href="https://github.com/Djumabaevs/iapp-used" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏗️</div>
+          <div class="card-title-block"><div class="card-title">WorldCraft</div></div>
+        </div>
+        <p class="card-desc">3D habit tracker city builder — complete habits, grow buildings. Day/night cycle, weather, achievements, 9 categories.</p>
+        <div class="card-tech"><span class="tech-badge">Three.js</span><span class="tech-badge">OrbitControls</span><span class="tech-badge">PWA</span></div>
+        <div class="card-links">
+          <a href="https://djumabaevs.github.io/worldcraft/" target="_blank" rel="noopener" class="card-link card-link-filled">Live Demo ↗</a>
+          <a href="https://github.com/Djumabaevs/worldcraft" target="_blank" rel="noopener" class="card-link">GitHub ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Games -->
+<section id="games">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">🎮</span>
+      <h2>HTML5 <span>Games</span></h2>
+      <p class="section-subtitle">Browser games built with Canvas and WebGL. Mobile + desktop.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🧫</div>
+          <div class="card-title-block"><div class="card-title">BioLab: Containment Breach</div></div>
+        </div>
+        <p class="card-desc">3D FPS shooter — 8 weapons, 3 levels, 5+ enemy types, boss fights. WebGL with bloom post-processing and procedural textures.</p>
+        <div class="card-tech"><span class="tech-badge">Three.js</span><span class="tech-badge">WebGL</span><span class="tech-badge">Procedural Textures</span></div>
+        <div class="card-links"><a href="https://djumabaevs.github.io/3dgame/" target="_blank" rel="noopener" class="card-link card-link-filled">Play ↗</a><a href="https://github.com/Djumabaevs/3dgame" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚔️</div>
+          <div class="card-title-block"><div class="card-title">Mortal Combat</div></div>
+        </div>
+        <p class="card-desc">Fighting game inspired by classic arcade fighters. Character selection, combos, and special moves.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+        <div class="card-links"><a href="https://djumabaevs.github.io/mortalgame/" target="_blank" rel="noopener" class="card-link card-link-filled">Play ↗</a><a href="https://github.com/Djumabaevs/mortalgame" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🚀</div>
+          <div class="card-title-block"><div class="card-title">Nova Strike</div></div>
+        </div>
+        <p class="card-desc">Space shooter with waves, 3 weapon types, power-ups, and boss battles.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏃</div>
+          <div class="card-title-block"><div class="card-title">Cyber Runner</div></div>
+        </div>
+        <p class="card-desc">Run & gun platformer in the style of Contra with side-scrolling action.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔄</div>
+          <div class="card-title-block"><div class="card-title">Gravity Flip</div></div>
+        </div>
+        <p class="card-desc">Puzzle platformer with gravity switching mechanics — flip the world to solve puzzles.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚔️</div>
+          <div class="card-title-block"><div class="card-title">Shadow Quest</div></div>
+        </div>
+        <p class="card-desc">RPG adventure with quests, turn-based combat, inventory, and exploration.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏎️</div>
+          <div class="card-title-block"><div class="card-title">Turbo Drift</div></div>
+        </div>
+        <p class="card-desc">High-speed racing game with realistic drifting physics and multiple tracks.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🧩</div>
+          <div class="card-title-block"><div class="card-title">Mind Grid</div></div>
+        </div>
+        <p class="card-desc">Candy Crush-style match-3 puzzle game with combos, power-ups, and progressive difficulty.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏰</div>
+          <div class="card-title-block"><div class="card-title">Empire Clash</div></div>
+        </div>
+        <p class="card-desc">RTS strategy — fog of war, unit management, resource gathering, base building, and AI opponents.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title-block"><div class="card-title">Tactical Ops</div></div>
+        </div>
+        <p class="card-desc">Tactical top-down shooter with wave survival, radar, and stealth mechanics.</p>
+        <div class="card-tech"><span class="tech-badge">HTML5 Canvas</span><span class="tech-badge">JavaScript</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Blockchain -->
+<section id="blockchain">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">⛓️</span>
+      <h2>Block<span>chain</span></h2>
+      <p class="section-subtitle">Smart contracts, tokens, and a custom L1 blockchain from scratch.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💧</div>
+          <div class="card-title-block">
+            <div class="card-title">Wateron (WTRN)</div>
+            <span class="level-badge level-beginner">ERC-20</span>
+          </div>
+        </div>
+        <p class="card-desc">ERC-20 token on BNB Smart Chain. 1 WTRN = 1 liter of water. Deployed on mainnet with MetaMask integration.</p>
+        <div class="card-tech"><span class="tech-badge">Solidity</span><span class="tech-badge">Remix</span><span class="tech-badge">MetaMask</span><span class="tech-badge">BNB Chain</span></div>
+        <div class="card-links"><a href="https://wateron.vercel.app" target="_blank" rel="noopener" class="card-link card-link-filled">Website ↗</a><a href="https://github.com/Djumabaevs/wateron" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🗳️</div>
+          <div class="card-title-block">
+            <div class="card-title">Blockchain Voting DApp</div>
+            <span class="level-badge level-intermediate">DApp</span>
+          </div>
+        </div>
+        <p class="card-desc">Decentralized voting system on BNB Chain & Ethereum Sepolia. Smart contracts with OpenZeppelin, Hardhat tests, React frontend.</p>
+        <div class="card-tech"><span class="tech-badge">Solidity 0.8</span><span class="tech-badge">Hardhat</span><span class="tech-badge">Vite</span><span class="tech-badge">React</span><span class="tech-badge">OpenZeppelin</span></div>
+        <div class="card-links"><a href="https://github.com/Djumabaevs/blockchain" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal" style="border: 1px solid rgba(99,102,241,0.3);">
+        <div class="card-header">
+          <div class="card-icon">🔥</div>
+          <div class="card-title-block">
+            <div class="card-title">VoteChain — Custom L1 Blockchain</div>
+            <span class="level-badge level-advanced">From Scratch</span>
+          </div>
+        </div>
+        <p class="card-desc">Own blockchain from scratch! Custom L1 with Go, Cosmos SDK, CometBFT consensus. 3 custom modules: election, ballot, identity. Full validator node running on Hetzner.</p>
+        <div class="card-tech"><span class="tech-badge">Go</span><span class="tech-badge">Cosmos SDK</span><span class="tech-badge">CometBFT</span><span class="tech-badge">Protobuf</span><span class="tech-badge">CosmJS</span><span class="tech-badge">Keplr</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-fe">Frontend: Vercel</span>
+          <span class="hosting-badge hosting-be">Validator: Hetzner</span>
+        </div>
+        <div class="card-links"><a href="https://votechain-gules.vercel.app/" target="_blank" rel="noopener" class="card-link card-link-filled">Live ↗</a><a href="https://github.com/Djumabaevs/votechain-cosmos" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔍</div>
+          <div class="card-title-block">
+            <div class="card-title">ProofSnap — Photo Verification</div>
+            <span class="level-badge level-intermediate">Polygon Mainnet</span>
+          </div>
+        </div>
+        <p class="card-desc">Blockchain-anchored photo verification: SHA-256 → Merkle Tree → Polygon mainnet. Tamper-proof proof of existence for any image.</p>
+        <div class="card-tech"><span class="tech-badge">Polygon</span><span class="tech-badge">ethers.js</span><span class="tech-badge">Merkle Trees</span><span class="tech-badge">SHA-256</span></div>
+        <div class="card-links"><a href="https://github.com/Djumabaevs/privacy-proof" target="_blank" rel="noopener" class="card-link">GitHub ↗</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI / ML -->
+<section id="ai">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">🧠</span>
+      <h2>AI / <span>ML</span></h2>
+      <p class="section-subtitle">Custom models, fine-tuning, and on-device inference.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🤖</div>
+          <div class="card-title-block"><div class="card-title">DSA LLM</div></div>
+        </div>
+        <p class="card-desc">Custom LLM for data structures & algorithms. Two approaches: Transformer from scratch (10M params) and Qwen2.5-Coder-1.5B fine-tuned with LoRA (4M trainable params).</p>
+        <div class="card-tech"><span class="tech-badge">PyTorch</span><span class="tech-badge">Transformers</span><span class="tech-badge">PEFT/LoRA</span><span class="tech-badge">tiktoken</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚙️</div>
+          <div class="card-title-block"><div class="card-title">Qwen 3.5 Local</div></div>
+        </div>
+        <p class="card-desc">Local AI model — 0.8B multimodal with 262K context window. Converted to CoreML for on-device inference on iOS/macOS.</p>
+        <div class="card-tech"><span class="tech-badge">Qwen 3.5</span><span class="tech-badge">CoreML</span><span class="tech-badge">0.8B params</span><span class="tech-badge">262K Context</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💭</div>
+          <div class="card-title-block"><div class="card-title">Dreams AI</div></div>
+        </div>
+        <p class="card-desc">AI dream journal iOS app with Qwen 3.5 0.8B bundled on-device. Interprets dreams using local LLM — runs fully offline, no cloud needed.</p>
+        <div class="card-tech"><span class="tech-badge">Swift</span><span class="tech-badge">CoreML</span><span class="tech-badge">Qwen 3.5</span><span class="tech-badge">On-Device LLM</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title-block"><div class="card-title">VPN Throttle Detection AI</div></div>
+        </div>
+        <p class="card-desc">XGBoost model compiled to ONNX (~500KB) for GhostLine VPN. Analyzes 20 network features every 2 seconds — throughput, jitter, packet loss, DNS anomalies — to classify throttling type and auto-select optimal VPN protocol.</p>
+        <div class="card-tech"><span class="tech-badge">XGBoost</span><span class="tech-badge">ONNX</span><span class="tech-badge">Rust</span><span class="tech-badge">&lt;5ms inference</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bots -->
+<section id="bots">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">🤖</span>
+      <h2>Telegram <span>Bots</span> & Tools</h2>
+      <p class="section-subtitle">AI-powered bots and developer tools.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔧</div>
+          <div class="card-title-block"><div class="card-title">NanoBot</div></div>
+        </div>
+        <p class="card-desc">AI gateway framework with Telegram integration. Multi-provider LLM support (OpenAI, Anthropic, Groq), tool system (web search, file I/O, shell exec), voice transcription via Whisper, session management, and HTTP/WebSocket API.</p>
+        <ul class="card-features">
+          <li>Multi-provider LLM: OpenAI, Anthropic, Groq with hot-swapping</li>
+          <li>Built-in tool system: web search, file read/write, shell exec</li>
+          <li>Voice messages → text via Groq Whisper transcription</li>
+          <li>Workspace context: SOUL.md, USER.md, MEMORY.md</li>
+          <li>HTTP + WebSocket API for programmatic access</li>
+          <li>Interactive CLI setup wizard</li>
+        </ul>
+        <div class="card-tech"><span class="tech-badge">Node.js</span><span class="tech-badge">grammY</span><span class="tech-badge">OpenAI SDK</span><span class="tech-badge">Anthropic SDK</span><span class="tech-badge">WebSocket</span></div>
+        <div class="card-hosting">
+          <span class="hosting-badge hosting-be">Runs anywhere</span>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💖</div>
+          <div class="card-title-block"><div class="card-title">Mia</div></div>
+        </div>
+        <p class="card-desc">AI companion Telegram bot with BNB crypto subscription ($3/mo). Conversational AI with personality and memory.</p>
+        <div class="card-tech"><span class="tech-badge">Python</span><span class="tech-badge">Telegram Bot API</span><span class="tech-badge">BNB Payments</span></div>
+        <div class="card-hosting"><span class="hosting-badge hosting-be">Server: Hetzner</span></div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">👩‍💻</div>
+          <div class="card-title-block"><div class="card-title">Anjela</div></div>
+        </div>
+        <p class="card-desc">AI webdev Telegram bot — describe what you want, it builds HTML/CSS/JS and auto-deploys to GitHub.</p>
+        <div class="card-tech"><span class="tech-badge">Python</span><span class="tech-badge">Telegram Bot API</span><span class="tech-badge">GitHub API</span></div>
+        <div class="card-hosting"><span class="hosting-badge hosting-be">Server: Hetzner</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Infrastructure -->
+<section id="infra">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-emoji">🏗️</span>
+      <h2>Infra<span>structure</span></h2>
+      <p class="section-subtitle">Server, domains, and deployment stack.</p>
+    </div>
+    <div class="infra-grid">
+
+      <div class="infra-card reveal">
+        <h3>🖥️ Hetzner Server</h3>
+        <ul class="infra-list">
+          <li><span class="infra-dot"></span>Ubuntu VPS — dedicated server</li>
+          <li><span class="infra-dot"></span>VoteChain validator node (CometBFT)</li>
+          <li><span class="infra-dot"></span>ProofSnap backend (Fastify)</li>
+          <li><span class="infra-dot"></span>Real Dashboard WebSocket server</li>
+          <li><span class="infra-dot"></span>AlgoApp backend</li>
+          <li><span class="infra-dot"></span>GhostLine VPN (WireGuard + backend)</li>
+          <li><span class="infra-dot"></span>Mia & Anjela Telegram bots</li>
+        </ul>
+      </div>
+
+      <div class="infra-card reveal">
+        <h3>🌐 Domains</h3>
+        <ul class="infra-list">
+          <li><span class="infra-dot"></span>relaxview.live — MovieStream</li>
+          <li><span class="infra-dot"></span>relaxplay.live</li>
+          <li><span class="infra-dot"></span>relaxlisten.live</li>
+        </ul>
+      </div>
+
+      <div class="infra-card reveal">
+        <h3>🚀 Deployment</h3>
+        <ul class="infra-list">
+          <li><span class="infra-dot"></span>Vercel — SSR frontends (Next.js)</li>
+          <li><span class="infra-dot"></span>GitHub Pages — static sites & games</li>
+          <li><span class="infra-dot"></span>Hetzner — backends & bots</li>
+          <li><span class="infra-dot"></span>Nginx reverse proxy + Let's Encrypt SSL</li>
+          <li><span class="infra-dot"></span>systemd services for all backend processes</li>
+        </ul>
+      </div>
+
+      <div class="infra-card reveal">
+        <h3>📊 Skills & Stack</h3>
+        <ul class="infra-list">
+          <li><span class="infra-dot"></span>Swift, SwiftUI, UIKit, ARKit, CoreML</li>
+          <li><span class="infra-dot"></span>JavaScript/TypeScript, React, Next.js</li>
+          <li><span class="infra-dot"></span>Node.js, Fastify, Express</li>
+          <li><span class="infra-dot"></span>Go, Rust, Python</li>
+          <li><span class="infra-dot"></span>Solidity, Hardhat, Cosmos SDK</li>
+          <li><span class="infra-dot"></span>Three.js, WebGL, HTML5 Canvas</li>
+          <li><span class="infra-dot"></span>Firebase, SQLite, PostgreSQL</li>
+          <li><span class="infra-dot"></span>PyTorch, CoreML, ONNX</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-links">
+    <a href="https://github.com/Djumabaevs" target="_blank" rel="noopener" class="footer-link" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    </a>
+    <a href="https://t.me/crashANR" target="_blank" rel="noopener" class="footer-link" aria-label="Telegram">
+      <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+    <a href="mailto:djumabaevb@gmail.com" class="footer-link" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@InsideOutDiscovery" target="_blank" rel="noopener" class="footer-link" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="var(--bg)" d="M9.545 15.568V8.432L15.818 12z"/></svg>
+    </a>
+  </div>
+  <p class="footer-text">
+    Bakyt Dzhumabaev · <a href="mailto:djumabaevb@gmail.com" class="footer-email">djumabaevb@gmail.com</a> · <a href="https://t.me/crashANR" class="footer-email">@crashANR</a>
+  </p>
+  <p class="footer-text" style="margin-top: 8px;">All projects are real, live, and built by me. © 2026</p>
+</footer>
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const saved = localStorage.getItem('theme');
+if (saved) { html.setAttribute('data-theme', saved); toggle.textContent = saved === 'dark' ? '☀' : '☾'; }
+else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { html.setAttribute('data-theme', 'dark'); toggle.textContent = '☀'; }
+toggle.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next); localStorage.setItem('theme', next); toggle.textContent = next === 'dark' ? '☀' : '☾';
+});
+const mobileBtn = document.getElementById('mobileMenu');
+const navLinks = document.getElementById('navLinks');
+mobileBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
