@@ -57,6 +57,18 @@
   --section-alt: #111113;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Floating background images */
+.bg-images { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+.bg-img { position: absolute; opacity: 0.04; filter: grayscale(30%); border-radius: 20px; transition: opacity 0.4s; }
+[data-theme="dark"] .bg-img { opacity: 0.06; filter: grayscale(20%); }
+.bg-img:nth-child(1) { width: 280px; top: 5%; left: 3%; transform: rotate(-8deg); }
+.bg-img:nth-child(2) { width: 220px; top: 15%; right: 5%; transform: rotate(12deg); }
+.bg-img:nth-child(3) { width: 260px; top: 35%; left: 8%; transform: rotate(5deg); }
+.bg-img:nth-child(4) { width: 240px; top: 50%; right: 3%; transform: rotate(-10deg); }
+.bg-img:nth-child(5) { width: 200px; top: 70%; left: 5%; transform: rotate(15deg); }
+.bg-img:nth-child(6) { width: 250px; top: 85%; right: 8%; transform: rotate(-5deg); }
+nav, .hero, section, footer { position: relative; z-index: 1; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif;
@@ -180,6 +192,15 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 </style>
 </head>
 <body>
+<!-- Floating background images -->
+<div class="bg-images">
+  <img src="images/agent1.jpg" alt="" class="bg-img">
+  <img src="images/camera1.jpg" alt="" class="bg-img">
+  <img src="images/tattoo_web1.jpg" alt="" class="bg-img">
+  <img src="images/agent2.jpg" alt="" class="bg-img">
+  <img src="images/camera2.jpg" alt="" class="bg-img">
+  <img src="images/tattoo_web2.jpg" alt="" class="bg-img">
+</div>
 
 <nav>
   <div class="nav-inner">
@@ -1042,9 +1063,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
     <a href="mailto:djumabaevb@gmail.com" class="footer-link" aria-label="Email">
       <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
     </a>
-    <a href="https://www.youtube.com/@InsideOutDiscovery" target="_blank" rel="noopener" class="footer-link" aria-label="YouTube">
-      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="var(--bg)" d="M9.545 15.568V8.432L15.818 12z"/></svg>
-    </a>
+
   </div>
   <p class="footer-text">
     Bakyt Dzhumabaev · <a href="mailto:djumabaevb@gmail.com" class="footer-email">djumabaevb@gmail.com</a> · <a href="https://t.me/crashANR" class="footer-email">@crashANR</a>
