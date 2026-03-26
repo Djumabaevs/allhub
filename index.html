@@ -97,6 +97,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var
 .hero-subtitle { font-size: clamp(16px, 2.5vw, 22px); color: var(--text-secondary); font-weight: 400; max-width: 600px; margin: 0 auto 40px; }
 .hero-stats { display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; }
 .hero-stat-number { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-stat-number.hero-mega { font-size: clamp(72px, 12vw, 120px); font-weight: 900; letter-spacing: -0.05em; background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b, #10b981, #6366f1); background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: megaShimmer 4s ease infinite; filter: drop-shadow(0 0 30px rgba(99,102,241,0.3)); }
+@keyframes megaShimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .hero-stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0.4; animation: scrollBounce 2s infinite; }
 .scroll-indicator span { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); }
@@ -235,7 +237,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
     <h1>Bakyt Dzhumabaev</h1>
     <p class="hero-subtitle">Full-Stack Developer · iOS · Web · Blockchain · AI/ML</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-number">23</div><div class="hero-stat-label">App Store Apps</div></div>
+      <div class="hero-stat"><div class="hero-stat-number hero-mega">54</div><div class="hero-stat-label">App Store Apps</div></div>
       <div class="hero-stat"><div class="hero-stat-number">12</div><div class="hero-stat-label">Web Projects</div></div>
       <div class="hero-stat"><div class="hero-stat-number">9</div><div class="hero-stat-label">Games</div></div>
       <div class="hero-stat"><div class="hero-stat-number">3</div><div class="hero-stat-label">Blockchains</div></div>
@@ -250,7 +252,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
     <div class="section-header reveal">
       <span class="section-emoji">📱</span>
       <h2>iOS <span>Apps</span></h2>
-      <p class="section-subtitle">23 published apps on the App Store. Built with Swift.</p>
+      <p class="section-subtitle">54 published apps on the App Store. Built with Swift.</p>
     </div>
     <div class="cards-grid">
 
@@ -406,7 +408,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/72/ba/1172bac9-451b-8160-7719-7bf3d10fd03e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="CaloriesSnap">
+          <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/74/56/e4/7456e4a8-371e-9bad-6028-a8a404550949/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="CaloriesSnap">
           <div class="card-title-block">
             <div class="card-title">CaloriesSnap</div>
             <span class="card-price">$4.99</span>
