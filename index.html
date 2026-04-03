@@ -38,8 +38,8 @@
   --status-wip: #f59e0b;
 }
 [data-theme="dark"] {
-  --bg: #000000;
-  --bg-secondary: #111113;
+  --bg: #0a0e1a;
+  --bg-secondary: #0d1224;
   --text: #f5f5f7;
   --text-secondary: #a1a1a6;
   --card-bg: rgba(28,28,30,0.72);
@@ -54,7 +54,7 @@
   --badge-bg: rgba(255,255,255,0.08);
   --badge-text: #ccc;
   --hero-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1028 50%, #0a0a0a 100%);
-  --section-alt: #111113;
+  --section-alt: #0a0e1a;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -75,6 +75,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif;
   background: var(--bg); color: var(--text); line-height: 1.5;
   -webkit-font-smoothing: antialiased; transition: background 0.4s, color 0.4s;
+}
+[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0a0e1a 0%, #0f1629 30%, #111d35 60%, #0d1528 80%, #080c16 100%);
+  background-attachment: fixed;
 }
 
 /* Nav */
@@ -108,7 +112,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var
 
 /* Sections */
 section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
-section:nth-child(even) { max-width: 100%; background: var(--section-alt); transition: background 0.4s; }
+section:nth-child(even) { max-width: 100%; transition: background 0.4s; }
+[data-theme="light"] section:nth-child(even) { background: var(--section-alt); }
+[data-theme="dark"] section:nth-child(even) { background: transparent; }
 section:nth-child(even) > .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-header { margin-bottom: 56px; text-align: center; }
 .section-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
@@ -1055,7 +1061,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 </section>
 
 <!-- Smart Agent Promo -->
-<section style="padding:60px 24px;max-width:100%;background:var(--bg);transition:background 0.4s;">
+<section style="padding:60px 24px;max-width:100%;transition:background 0.4s;">
   <div style="max-width:800px;margin:0 auto;">
     <div class="reveal" style="border-radius:24px;padding:48px 36px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(168,85,247,0.1) 40%, rgba(236,72,153,0.08) 70%, rgba(245,158,11,0.06) 100%);border:1px solid rgba(139,92,246,0.15);">
       <!-- Soon badge -->
