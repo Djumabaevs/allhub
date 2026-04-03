@@ -111,14 +111,15 @@ section:nth-child(even) { max-width: 100%; background: var(--section-alt); trans
 section:nth-child(even) > .section-inner { max-width: 1200px; margin: 0 auto; }
 .section-header { margin-bottom: 56px; text-align: center; }
 .section-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
-.section-header h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.035em; margin-bottom: 8px; }
-.section-header h2 span { background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.section-header h2 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -0.035em; margin-bottom: 8px; background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b, #10b981, #6366f1); background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: megaShimmer 4s ease infinite; }
+.section-header h2 span { -webkit-text-fill-color: inherit; }
 .section-subtitle { color: var(--text-secondary); font-size: 17px; max-width: 500px; margin: 0 auto; }
 
 /* Cards */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; }
-.card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; box-shadow: var(--card-shadow); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s, background 0.4s; position: relative; overflow: hidden; }
-.card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 28px 28px 31px; box-shadow: var(--card-shadow), 0 0 0 1px rgba(99,102,241,0.06), inset 0 1px 0 rgba(255,255,255,0.05); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s, background 0.4s; position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end)); border-radius: 20px 0 0 20px; }
+.card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover), 0 0 20px rgba(99,102,241,0.12); }
 .card-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
 .card-icon { font-size: 36px; line-height: 1; flex-shrink: 0; }
 .card-icon-img { width: 52px; height: 52px; border-radius: 12px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
@@ -158,8 +159,9 @@ section:nth-child(even) > .section-inner { max-width: 1200px; margin: 0 auto; }
 
 /* Infra */
 .infra-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-.infra-card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px; box-shadow: var(--card-shadow); transition: transform 0.3s, box-shadow 0.3s, background 0.4s; }
-.infra-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.infra-card { background: var(--card-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--card-border); border-radius: 20px; padding: 28px 28px 28px 31px; box-shadow: var(--card-shadow), 0 0 0 1px rgba(99,102,241,0.06), inset 0 1px 0 rgba(255,255,255,0.05); transition: transform 0.3s, box-shadow 0.3s, background 0.4s; position: relative; overflow: hidden; }
+.infra-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--gradient-start), var(--gradient-end)); border-radius: 20px 0 0 20px; }
+.infra-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover), 0 0 20px rgba(99,102,241,0.12); }
 .infra-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.02em; }
 .infra-list { list-style: none; }
 .infra-list li { font-size: 14px; color: var(--text-secondary); padding: 6px 0; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 8px; }
@@ -199,6 +201,12 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
   .bg-img:nth-child(5) { width: 130px; top: 66%; left: -3%; }
   .bg-img:nth-child(6) { width: 150px; top: 82%; right: 0%; }
 }
+
+/* Soon badge */
+.soon-badge { position: absolute; top: 18px; right: -8px; background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b); color: #1a1a1a; font-size: 12px; font-weight: 800; padding: 4px 16px; border-radius: 6px; transform: rotate(12deg); box-shadow: 0 2px 12px rgba(245,158,11,0.4); letter-spacing: 0.04em; text-transform: uppercase; z-index: 2; }
+
+/* Enhanced dark mode card backgrounds */
+[data-theme="dark"] .card, [data-theme="dark"] .infra-card { --card-bg: rgba(38,38,42,0.80); --card-border: rgba(255,255,255,0.12); }
 </style>
 </head>
 <body>
@@ -235,7 +243,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section class="hero" id="hero">
   <div class="hero-content">
     <h1>Bakyt Dzhumabaev</h1>
-    <p class="hero-subtitle">Full-Stack Developer · iOS · Web · Blockchain · AI/ML</p>
+    <p class="hero-subtitle">Full-Stack Developer · iOS · Web · Blockchain · AI/ML · Smart Agent Builder</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-number hero-mega">67</div><div class="hero-stat-label">App Store Apps</div></div>
       <div class="hero-stat"><div class="hero-stat-number">12</div><div class="hero-stat-label">Web Projects</div></div>
@@ -250,7 +258,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="ios">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">📱</span>
+
       <h2>iOS <span>Apps</span></h2>
       <p class="section-subtitle">67 published apps on the App Store. Built with Swift.</p>
     </div>
@@ -1034,9 +1042,9 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       </div><!-- end hiddenApps -->
 
-      <!-- View More Button -->
+      <!-- View More / Hide Button -->
       <div id="viewMoreBtn" style="grid-column:1/-1;text-align:center;padding:2rem 0;">
-        <button onclick="document.getElementById('hiddenApps').style.display='contents';document.getElementById('viewMoreBtn').style.display='none';document.querySelectorAll('#hiddenApps .reveal').forEach(el=>el.classList.add('visible'));" style="display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:14px;border:1px solid var(--accent);background:var(--accent-bg);color:var(--accent);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;letter-spacing:-0.01em;" onmouseenter="this.style.background='var(--accent)';this.style.color='#fff';" onmouseleave="this.style.background='var(--accent-bg)';this.style.color='var(--accent)';">
+        <button id="toggleAppsBtn" onclick="toggleApps()" style="display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:14px;border:1px solid var(--accent);background:var(--accent-bg);color:var(--accent);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;letter-spacing:-0.01em;" onmouseenter="this.style.background='var(--accent)';this.style.color='#fff';" onmouseleave="this.style.background='var(--accent-bg)';this.style.color='var(--accent)';">
           View all 67 apps &nbsp;↓
         </button>
       </div>
@@ -1049,6 +1057,8 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section style="padding:60px 24px;max-width:100%;background:var(--bg);transition:background 0.4s;">
   <div style="max-width:800px;margin:0 auto;">
     <div class="reveal" style="border-radius:24px;padding:48px 36px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(168,85,247,0.1) 40%, rgba(236,72,153,0.08) 70%, rgba(245,158,11,0.06) 100%);border:1px solid rgba(139,92,246,0.15);">
+      <!-- Soon badge -->
+      <div class="soon-badge">Soon</div>
       <!-- Animated glow -->
       <div style="position:absolute;top:-60%;left:-60%;width:220%;height:220%;background:radial-gradient(circle at 25% 45%, rgba(99,102,241,0.07) 0%, transparent 55%), radial-gradient(circle at 75% 55%, rgba(236,72,153,0.07) 0%, transparent 55%);animation:heroGlow 12s ease-in-out infinite alternate;pointer-events:none;"></div>
       <!-- Content -->
@@ -1067,7 +1077,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="web">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">🌐</span>
+
       <h2>Web <span>Projects</span></h2>
       <p class="section-subtitle">Full-stack web applications and services.</p>
     </div>
@@ -1075,7 +1085,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">📡</div>
           <div class="card-title-block"><div class="card-title">NewsAI — AI News Aggregator</div></div>
         </div>
         <p class="card-desc">Zero-backend AI news hub — aggregates articles from 15+ RSS feeds (OpenAI, Anthropic, Google, Meta blogs), YouTube videos, trending HuggingFace models, and commercial model pricing from OpenRouter. All in one glassmorphism dashboard.</p>
@@ -1095,7 +1104,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🌍</div>
           <div class="card-title-block"><div class="card-title">Real Dashboard</div></div>
         </div>
         <p class="card-desc">Palantir-style 3D geospatial command dashboard — interactive globe with satellite tracking, live flights, webcams, earthquakes, and weather overlays in real-time.</p>
@@ -1109,7 +1117,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🔍</div>
           <div class="card-title-block"><div class="card-title">ProofSnap</div></div>
         </div>
         <p class="card-desc">AI photo verification on blockchain. Snap a photo → AI analysis → SHA-256 hash → Merkle Tree → immutable proof on Polygon mainnet. iOS native + web dashboard.</p>
@@ -1124,7 +1131,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🎬</div>
           <div class="card-title-block"><div class="card-title">КиноПоток (MovieStream)</div></div>
         </div>
         <p class="card-desc">Movie & TV streaming aggregator with search, categories, and Samsung TV (Tizen) compatibility. SSR for SEO.</p>
@@ -1137,7 +1143,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🔐</div>
           <div class="card-title-block">
             <div class="card-title">GhostLine VPN</div>
             <span class="card-status status-wip">In Development</span>
@@ -1161,7 +1166,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">📸</div>
           <div class="card-title-block"><div class="card-title">Photo ID (Фото на документы)</div></div>
         </div>
         <p class="card-desc">Passport photo creator PWA with AI background removal, face detection, and auto-crop. Presets for 30+ countries: Russia, USA, Schengen, Korea. Works offline.</p>
@@ -1174,7 +1178,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">💧</div>
           <div class="card-title-block"><div class="card-title">Wateron</div></div>
         </div>
         <p class="card-desc">Crypto token website — 1 WTRN = 1 liter of water. ERC-20 on BNB Smart Chain with MetaMask integration.</p>
@@ -1188,7 +1191,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">💻</div>
           <div class="card-title-block">
             <div class="card-title">AlgoApp</div>
             <span class="card-status status-paused">Paused</span>
@@ -1205,7 +1207,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">📱</div>
           <div class="card-title-block"><div class="card-title">iAppUsed</div></div>
         </div>
         <p class="card-desc">Used Apple devices marketplace with real-time database, auth, and image upload.</p>
@@ -1215,7 +1216,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🏗️</div>
           <div class="card-title-block"><div class="card-title">WorldCraft</div></div>
         </div>
         <p class="card-desc">3D habit tracker city builder — complete habits, grow buildings. Day/night cycle, weather, achievements, 9 categories.</p>
@@ -1228,7 +1228,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🎓</div>
           <div class="card-title-block"><div class="card-title">Interview Prep Hub</div></div>
         </div>
         <p class="card-desc">1900+ interview questions across 38 tech topics — from JavaScript to System Design to AI/ML. Built-in progress tracking, search, and syntax-highlighted code examples.</p>
@@ -1254,7 +1253,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="games">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">🎮</span>
+
       <h2>HTML5 <span>Games</span></h2>
       <p class="section-subtitle">Browser games built with Canvas and WebGL. Mobile + desktop.</p>
     </div>
@@ -1262,7 +1261,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🧫</div>
           <div class="card-title-block"><div class="card-title">BioLab: Containment Breach</div></div>
         </div>
         <p class="card-desc">3D FPS shooter — 8 weapons, 3 levels, 5+ enemy types, boss fights. WebGL with bloom post-processing and procedural textures.</p>
@@ -1272,7 +1270,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">⚔️</div>
           <div class="card-title-block"><div class="card-title">Mortal Combat</div></div>
         </div>
         <p class="card-desc">Fighting game inspired by classic arcade fighters. Character selection, combos, and special moves.</p>
@@ -1282,7 +1279,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🚀</div>
           <div class="card-title-block"><div class="card-title">Nova Strike</div></div>
         </div>
         <p class="card-desc">Space shooter with waves, 3 weapon types, power-ups, and boss battles.</p>
@@ -1291,7 +1287,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🏃</div>
           <div class="card-title-block"><div class="card-title">Cyber Runner</div></div>
         </div>
         <p class="card-desc">Run & gun platformer in the style of Contra with side-scrolling action.</p>
@@ -1300,7 +1295,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🔄</div>
           <div class="card-title-block"><div class="card-title">Gravity Flip</div></div>
         </div>
         <p class="card-desc">Puzzle platformer with gravity switching mechanics — flip the world to solve puzzles.</p>
@@ -1309,7 +1303,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">⚔️</div>
           <div class="card-title-block"><div class="card-title">Shadow Quest</div></div>
         </div>
         <p class="card-desc">RPG adventure with quests, turn-based combat, inventory, and exploration.</p>
@@ -1318,7 +1311,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🏎️</div>
           <div class="card-title-block"><div class="card-title">Turbo Drift</div></div>
         </div>
         <p class="card-desc">High-speed racing game with realistic drifting physics and multiple tracks.</p>
@@ -1327,7 +1319,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🧩</div>
           <div class="card-title-block"><div class="card-title">Mind Grid</div></div>
         </div>
         <p class="card-desc">Candy Crush-style match-3 puzzle game with combos, power-ups, and progressive difficulty.</p>
@@ -1336,7 +1327,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🏰</div>
           <div class="card-title-block"><div class="card-title">Empire Clash</div></div>
         </div>
         <p class="card-desc">RTS strategy — fog of war, unit management, resource gathering, base building, and AI opponents.</p>
@@ -1345,7 +1335,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🎯</div>
           <div class="card-title-block"><div class="card-title">Tactical Ops</div></div>
         </div>
         <p class="card-desc">Tactical top-down shooter with wave survival, radar, and stealth mechanics.</p>
@@ -1360,7 +1349,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="blockchain">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">⛓️</span>
+
       <h2>Block<span>chain</span></h2>
       <p class="section-subtitle">Smart contracts, tokens, and a custom L1 blockchain from scratch.</p>
     </div>
@@ -1368,7 +1357,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">💧</div>
           <div class="card-title-block">
             <div class="card-title">Wateron (WTRN)</div>
             <span class="level-badge level-beginner">ERC-20</span>
@@ -1381,7 +1369,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🗳️</div>
           <div class="card-title-block">
             <div class="card-title">Blockchain Voting DApp</div>
             <span class="level-badge level-intermediate">DApp</span>
@@ -1394,7 +1381,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal" style="border: 1px solid rgba(99,102,241,0.3);">
         <div class="card-header">
-          <div class="card-icon">🔥</div>
           <div class="card-title-block">
             <div class="card-title">VoteChain — Custom L1 Blockchain</div>
             <span class="level-badge level-advanced">From Scratch</span>
@@ -1411,7 +1397,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🔍</div>
           <div class="card-title-block">
             <div class="card-title">ProofSnap — Photo Verification</div>
             <span class="level-badge level-intermediate">Polygon Mainnet</span>
@@ -1430,7 +1415,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="ai">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">🧠</span>
+
       <h2>AI / <span>ML</span></h2>
       <p class="section-subtitle">Custom models, fine-tuning, and on-device inference.</p>
     </div>
@@ -1438,7 +1423,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🤖</div>
           <div class="card-title-block"><div class="card-title">DSA LLM</div></div>
         </div>
         <p class="card-desc">Custom LLM for data structures & algorithms. Two approaches: Transformer from scratch (10M params) and Qwen2.5-Coder-1.5B fine-tuned with LoRA (4M trainable params).</p>
@@ -1447,7 +1431,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">⚙️</div>
           <div class="card-title-block"><div class="card-title">Qwen 3.5 Local</div></div>
         </div>
         <p class="card-desc">Local AI model — 0.8B multimodal with 262K context window. Converted to CoreML for on-device inference on iOS/macOS.</p>
@@ -1456,7 +1439,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">💭</div>
           <div class="card-title-block"><div class="card-title">Dreams AI</div></div>
         </div>
         <p class="card-desc">AI dream journal iOS app with Qwen 3.5 0.8B bundled on-device. Interprets dreams using local LLM — runs fully offline, no cloud needed.</p>
@@ -1465,7 +1447,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🎯</div>
           <div class="card-title-block"><div class="card-title">VPN Throttle Detection AI</div></div>
         </div>
         <p class="card-desc">XGBoost model compiled to ONNX (~500KB) for GhostLine VPN. Analyzes 20 network features every 2 seconds — throughput, jitter, packet loss, DNS anomalies — to classify throttling type and auto-select optimal VPN protocol.</p>
@@ -1480,7 +1461,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="bots">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">🤖</span>
+
       <h2>Telegram <span>Bots</span> & Tools</h2>
       <p class="section-subtitle">AI-powered bots and developer tools.</p>
     </div>
@@ -1488,7 +1469,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">🔧</div>
           <div class="card-title-block"><div class="card-title">NanoBot</div></div>
         </div>
         <p class="card-desc">AI gateway framework with Telegram integration. Multi-provider LLM support (OpenAI, Anthropic, Groq), tool system (web search, file I/O, shell exec), voice transcription via Whisper, session management, and HTTP/WebSocket API.</p>
@@ -1508,7 +1488,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">💖</div>
           <div class="card-title-block"><div class="card-title">Mia</div></div>
         </div>
         <p class="card-desc">AI companion Telegram bot with BNB crypto subscription ($3/mo). Conversational AI with personality and memory.</p>
@@ -1518,7 +1497,6 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 
       <div class="card reveal">
         <div class="card-header">
-          <div class="card-icon">👩‍💻</div>
           <div class="card-title-block"><div class="card-title">Anjela</div></div>
         </div>
         <p class="card-desc">AI webdev Telegram bot — describe what you want, it builds HTML/CSS/JS and auto-deploys to GitHub.</p>
@@ -1534,14 +1512,14 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
 <section id="infra">
   <div class="section-inner">
     <div class="section-header reveal">
-      <span class="section-emoji">🏗️</span>
+
       <h2>Infra<span>structure</span></h2>
       <p class="section-subtitle">Server, domains, and deployment stack.</p>
     </div>
     <div class="infra-grid">
 
       <div class="infra-card reveal">
-        <h3>🖥️ Hetzner Server</h3>
+        <h3>Hetzner Server</h3>
         <ul class="infra-list">
           <li><span class="infra-dot"></span>Ubuntu VPS — dedicated server</li>
           <li><span class="infra-dot"></span>VoteChain validator node (CometBFT)</li>
@@ -1554,7 +1532,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
       </div>
 
       <div class="infra-card reveal">
-        <h3>🌐 Domains</h3>
+        <h3>Domains</h3>
         <ul class="infra-list">
           <li><span class="infra-dot"></span>relaxview.live — MovieStream</li>
           <li><span class="infra-dot"></span>relaxplay.live</li>
@@ -1563,7 +1541,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
       </div>
 
       <div class="infra-card reveal">
-        <h3>🚀 Deployment</h3>
+        <h3>Deployment</h3>
         <ul class="infra-list">
           <li><span class="infra-dot"></span>Vercel — SSR frontends (Next.js)</li>
           <li><span class="infra-dot"></span>GitHub Pages — static sites & games</li>
@@ -1574,7 +1552,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
       </div>
 
       <div class="infra-card reveal">
-        <h3>📊 Skills & Stack</h3>
+        <h3>Skills & Stack</h3>
         <ul class="infra-list">
           <li><span class="infra-dot"></span>Swift, SwiftUI, UIKit, ARKit, CoreML</li>
           <li><span class="infra-dot"></span>JavaScript/TypeScript, React, Next.js</li>
@@ -1629,6 +1607,20 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function toggleApps() {
+  const hidden = document.getElementById('hiddenApps');
+  const btn = document.getElementById('toggleAppsBtn');
+  const isVisible = hidden.style.display === 'contents';
+  if (isVisible) {
+    hidden.style.display = 'none';
+    btn.innerHTML = 'View all 67 apps &nbsp;↓';
+  } else {
+    hidden.style.display = 'contents';
+    btn.innerHTML = 'Hide &nbsp;↑';
+    hidden.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
 </script>
 </body>
 </html>
