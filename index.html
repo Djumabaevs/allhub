@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bakyt Dzhumabaev — Full-Stack Developer</title>
-<meta name="description" content="iOS Developer with 60 published App Store apps, full-stack web, blockchain, AI/ML, and game development portfolio.">
+<meta name="description" content="iOS Developer with 67 published App Store apps, full-stack web, blockchain, AI/ML, and game development portfolio.">
 <meta property="og:title" content="Bakyt Dzhumabaev — Full-Stack Developer">
-<meta property="og:description" content="60 App Store apps · Web · Blockchain · AI · Games">
+<meta property="og:description" content="67 App Store apps · Web · Blockchain · AI · Games">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 <style>
@@ -237,7 +237,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
     <h1>Bakyt Dzhumabaev</h1>
     <p class="hero-subtitle">Full-Stack Developer · iOS · Web · Blockchain · AI/ML</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-number hero-mega">60</div><div class="hero-stat-label">App Store Apps</div></div>
+      <div class="hero-stat"><div class="hero-stat-number hero-mega">67</div><div class="hero-stat-label">App Store Apps</div></div>
       <div class="hero-stat"><div class="hero-stat-number">12</div><div class="hero-stat-label">Web Projects</div></div>
       <div class="hero-stat"><div class="hero-stat-number">9</div><div class="hero-stat-label">Games</div></div>
       <div class="hero-stat"><div class="hero-stat-number">3</div><div class="hero-stat-label">Blockchains</div></div>
@@ -252,7 +252,7 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
     <div class="section-header reveal">
       <span class="section-emoji">📱</span>
       <h2>iOS <span>Apps</span></h2>
-      <p class="section-subtitle">60 published apps on the App Store. Built with Swift.</p>
+      <p class="section-subtitle">67 published apps on the App Store. Built with Swift.</p>
     </div>
     <div class="cards-grid">
 
@@ -334,7 +334,9 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
         <div class="card-links"><a href="https://apps.apple.com/app/sallary-online-tracker/id6758534537" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
       </div>
 
-      <div class="card reveal">
+      <!-- Hidden apps (shown on View More click) -->
+      <div id="hiddenApps" style="display:none;contents:unset;">
+      <div class="card reveal visible">
         <div class="card-header">
           <img class="card-icon-img" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/ae/bd/e5aebd4f-c6f3-916d-477e-399364e2b3ad/AppIcon-0-0-1x_U007epad-0-1-85-220.png/128x128bb.jpg" alt="Mind Glow Offline">
           <div class="card-title-block">
@@ -1030,6 +1032,33 @@ footer { text-align: center; padding: 60px 24px; border-top: 1px solid var(--car
         <div class="card-links"><a href="https://apps.apple.com/app/baby-log-activities/id6760590367" target="_blank" rel="noopener" class="card-link card-link-appstore">🍎 App Store</a></div>
       </div>
 
+      </div><!-- end hiddenApps -->
+
+      <!-- View More Button -->
+      <div id="viewMoreBtn" style="grid-column:1/-1;text-align:center;padding:2rem 0;">
+        <button onclick="document.getElementById('hiddenApps').style.display='contents';document.getElementById('viewMoreBtn').style.display='none';document.querySelectorAll('#hiddenApps .reveal').forEach(el=>el.classList.add('visible'));" style="display:inline-flex;align-items:center;gap:8px;padding:14px 36px;border-radius:14px;border:1px solid var(--accent);background:var(--accent-bg);color:var(--accent);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.3s;letter-spacing:-0.01em;" onmouseenter="this.style.background='var(--accent)';this.style.color='#fff';" onmouseleave="this.style.background='var(--accent-bg)';this.style.color='var(--accent)';">
+          View all 67 apps &nbsp;↓
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Smart Agent Promo -->
+<section style="padding:60px 24px;max-width:100%;background:var(--bg);transition:background 0.4s;">
+  <div style="max-width:800px;margin:0 auto;">
+    <div class="reveal" style="border-radius:24px;padding:48px 36px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(168,85,247,0.1) 40%, rgba(236,72,153,0.08) 70%, rgba(245,158,11,0.06) 100%);border:1px solid rgba(139,92,246,0.15);">
+      <!-- Animated glow -->
+      <div style="position:absolute;top:-60%;left:-60%;width:220%;height:220%;background:radial-gradient(circle at 25% 45%, rgba(99,102,241,0.07) 0%, transparent 55%), radial-gradient(circle at 75% 55%, rgba(236,72,153,0.07) 0%, transparent 55%);animation:heroGlow 12s ease-in-out infinite alternate;pointer-events:none;"></div>
+      <!-- Content -->
+      <div style="position:relative;z-index:1;text-align:center;">
+        <h2 style="font-size:clamp(28px,5vw,42px);font-weight:900;letter-spacing:-0.04em;margin-bottom:16px;background:linear-gradient(135deg, #818CF8, #A78BFA, #E879F9, #FB7185, #FBBF24);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:megaShimmer 4s ease infinite;">Smart Agent</h2>
+        <p style="font-size:clamp(16px,2vw,20px);color:var(--text-secondary);line-height:1.7;max-width:550px;margin:0 auto 12px;">
+          Runs <span style="color:var(--accent);font-weight:700;">locally</span> on your computer and suggests all these <span style="font-weight:700;background:linear-gradient(135deg,#f59e0b,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">67 apps</span> for free
+        </p>
+        <p style="font-size:14px;color:var(--text-secondary);opacity:0.7;margin-top:20px;">Your AI assistant that knows exactly which app you need</p>
+      </div>
     </div>
   </div>
 </section>
