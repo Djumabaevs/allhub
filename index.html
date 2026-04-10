@@ -326,8 +326,13 @@ footer a:hover{text-decoration:underline}
 
 <!-- iOS APPS -->
 <section id="ios">
-<h2 class="stitle fade-in">📱 iOS Apps <span style="font-size:1rem;font-weight:400;color:var(--dim)">67+ Published on App Store</span></h2>
-<p class="ssub fade-in">Native Swift apps across productivity, health, AR, AI, and utilities</p>
+<div class="fade-in" style="text-align:center;margin-bottom:2.5rem">
+<div style="font-size:clamp(48px,8vw,80px);font-weight:900;letter-spacing:-.05em;background:linear-gradient(90deg,#6366f1,#ec4899,#f59e0b,#10b981,#6366f1);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s ease infinite;line-height:1.1">67+</div>
+<div style="font-size:1.8rem;font-weight:700;margin-top:.25rem">📱 iOS Apps on App Store</div>
+<p style="color:var(--dim);font-size:1.05rem;margin-top:.5rem">Native Swift apps across productivity, health, AR, AI, and utilities</p>
+</div>
+
+<style>@keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}</style>
 
 <div class="mini-grid">
 
@@ -401,6 +406,11 @@ footer a:hover{text-decoration:underline}
 <a href="https://apps.apple.com/app/id6758730624" target="_blank">App Store →</a>
 </div>
 
+</div><!-- end visible grid -->
+
+<div id="ios-more" style="display:none">
+<div class="mini-grid" style="margin-top:1rem">
+
 <div class="mini-card fade-in">
 <h4>🌍 Offline Menu Translator</h4>
 <p>Offline menu translation with OCR</p>
@@ -463,6 +473,13 @@ footer a:hover{text-decoration:underline}
 </div>
 
 </div>
+</div><!-- end ios-more -->
+
+<div style="text-align:center;margin-top:1.5rem" class="fade-in">
+<button onclick="toggleIOS()" id="ios-btn" style="background:rgba(129,140,248,.15);color:var(--accent);border:1px solid rgba(129,140,248,.3);padding:.65rem 2rem;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s"
+onmouseover="this.style.background='rgba(129,140,248,.25)'" onmouseout="this.style.background='rgba(129,140,248,.15)'">Show All 67+ Apps ↓</button>
+</div>
+
 </section>
 
 <hr class="sep">
@@ -663,6 +680,19 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+function toggleIOS() {
+  const more = document.getElementById('ios-more');
+  const btn = document.getElementById('ios-btn');
+  if (more.style.display === 'none') {
+    more.style.display = 'block';
+    btn.textContent = 'Hide ↑';
+    more.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  } else {
+    more.style.display = 'none';
+    btn.textContent = 'Show All 67+ Apps ↓';
+  }
+}
 </script>
 </body>
 </html>
